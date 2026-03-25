@@ -22,8 +22,8 @@ const Header = ({ onOpenModal }: HeaderProps) => {
           onClick={onOpenModal}
           className="py-2.5 px-4 sm:px-6 text-sm border border-border hover:bg-muted rounded-full font-semibold transition-all shadow-sm whitespace-nowrap"
         >
-          <span className="sm:hidden">Dejar de perder marca</span>
-          <span className="hidden sm:inline">Cotizar antes de seguir regalando percepcion</span>
+          <span className="sm:hidden">Dejar de perder clientes</span>
+          <span className="hidden sm:inline">Cotizar antes de seguir perdiendo clientes</span>
         </motion.button>
       </div>
     </nav>

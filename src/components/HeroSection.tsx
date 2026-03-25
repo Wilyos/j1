@@ -92,7 +92,7 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
               className="w-full sm:w-auto px-6 sm:px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold shadow-glow hover:brightness-95 transition-all flex items-center justify-center gap-2 text-base whitespace-nowrap"
             >
               <span className="sm:hidden">Quiero dejar de verme basico</span>
-              <span className="hidden sm:inline">Quiero dejar de regalar percepcion</span>
+              <span className="hidden sm:inline">Quiero dejar de perder clientes</span>
               <ArrowRight size={20} />
             </motion.button>
             <div className="flex items-center gap-4 px-2 sm:px-6 text-sm font-medium text-muted-foreground">
