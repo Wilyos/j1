@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ShieldCheck, ArrowRight, Palette, Layers3, Sparkles } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
-const heroProduct = '/box/box2.png';
+const heroProduct = '/box/box2hero.png';
 
 interface HeroSectionProps {
   onOpenModal: () => void;
@@ -34,7 +34,8 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
 
   return (
     <section className="relative min-h-screen pt-32 md:pt-40 pb-20 px-4 md:px-6 overflow-hidden">
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 sm:hidden bg-background" />
+      <div className="absolute inset-0 hidden sm:block">
         <img
           src="/box/bannerBox2.jpeg"
           alt="Banner de empaque de papel de calidad"
