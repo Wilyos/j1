@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ShieldCheck, ArrowRight, Palette, Layers3, Sparkles } from 'lucide-react';
+import { Plane, ArrowRight, Palette, Layers3, Sparkles } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const heroProduct = '/box/box2hero.png';
@@ -97,7 +97,7 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
               <ArrowRight size={20} />
             </motion.button>
             <div className="flex items-center gap-4 px-2 sm:px-6 text-sm font-medium text-muted-foreground">
-              <ShieldCheck className="text-primary" size={20} /> Ideal para marcas, restaurantes y dark kitchens que no quieren seguir pareciendo una opcion generica
+              <Plane className="text-primary" size={20} /> Envios nacionales e internacionales
             </div>
           </div>
         </motion.div>
