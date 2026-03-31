@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 
 const images = [
-  { src: '/box/box1.png', alt: "Empaque de papel de calidad personalizado - vista principal" },
-  { src: '/box/box2.png', alt: "Empaque de papel personalizado - vista lateral" },
-  { src: '/box/box3.png', alt: "Empaque de papel personalizado - detalle de marca" },
+  { src: '/box/alitas.webp', alt: "Empaque de papel de calidad personalizado - vista principal" },
+  { src: '/box/alitas1.webp', alt: "Empaque de papel personalizado - vista lateral" },
+  { src: '/box/j1papel.webp', alt: "Empaque de papel personalizado - detalle de marca" },
 ];
 
 const GallerySection = () => {

@@ -41,7 +41,7 @@ const VisualComparisonSection = () => {
           className="relative rounded-3xl border border-border/80 bg-card/80 shadow-elegant overflow-hidden"
         >
           <img
-            src="/j1.png"
+            src="/box/comparacionj1.webp"
             alt="Comparacion visual entre caja de icopor y empaque de papel personalizado"
             className="h-full w-full object-cover"
             loading="lazy"

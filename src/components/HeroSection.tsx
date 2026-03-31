@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Plane, ArrowRight, Palette, Layers3, Sparkles } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
-const heroProduct = '/box/box2hero.png';
+const heroProduct = '/box/alitas medidas.webp';
 
 interface HeroSectionProps {
   onOpenModal: () => void;
