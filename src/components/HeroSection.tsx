@@ -182,18 +182,14 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
             transition={{ delay: 0.25, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
             src={heroProduct}
             alt="Empaque de papel de calidad personalizable"
-            className="absolute inset-0 h-full w-full object-cover object-center z-0"
+            className="absolute inset-0 h-full w-full object-contain object-center sm:object-cover z-0"
           />
           <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/28 via-black/8 to-black/30 pointer-events-none" />
           <div className="absolute left-4 right-4 top-4 z-20 rounded-[1.6rem] border border-white/12 bg-black/62 px-4 py-3 backdrop-blur-xl shadow-[0_14px_34px_rgba(0,0,0,0.35)] sm:left-6 sm:right-auto sm:top-6 sm:max-w-[20rem] sm:px-5">
-            <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.28em] text-white/55">
-              <span className="h-2 w-2 rounded-full bg-primary shadow-[0_0_14px_rgba(34,197,94,0.65)]" />
-              Lo primero que juzgan
+            <div className="flex items-center gap-3 text-white">
+              <span className="h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_14px_rgba(34,197,94,0.65)]" />
+              <span className="text-[1.05rem] font-black uppercase leading-none tracking-[0.04em] sm:text-[1.15rem]">Reemplazo de la J1</span>
             </div>
-            <p className="mt-2 text-sm sm:text-[15px] font-semibold leading-tight text-white">
-              <span className="sm:hidden">Tu caja ya no hace ver tu marca barata</span>
-              <span className="hidden sm:inline">Tu cliente nota desde el empaque si tu marca cuida detalles o solo despacha por salir del paso</span>
-            </p>
           </div>
           <div className="hidden md:grid absolute bottom-5 left-5 right-5 z-20 grid-cols-2 gap-3 md:w-64 md:left-auto md:right-6 md:bottom-6">
             <div className="rounded-2xl bg-background/85 px-4 py-3 backdrop-blur-md shadow-elegant">
