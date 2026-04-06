@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, MessageCircle } from 'lucide-react';
+import { openWhatsApp } from '@/lib/whatsapp';
 
 interface QuoteModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
-
-const WHATSAPP_NUMBER = '573116111687';
 
 const QuoteModal = ({ isOpen, onClose }: QuoteModalProps) => {
   const [formData, setFormData] = useState({
@@ -36,7 +35,7 @@ const QuoteModal = ({ isOpen, onClose }: QuoteModalProps) => {
     e.preventDefault();
     if (!validate()) return;
     const message = `Hola, mi nombre es ${formData.name.trim()} y te contacto desde ${formData.company.trim()}. Quiero cotizar el cambio de cajas de icopor a empaques de papel de calidad personalizados que vi en la pagina. Material preferido: ${formData.material}. Tipo de impresion: ${formData.printType}. Me interesan ${formData.qty} unidades y mi numero de contacto es ${formData.phone.trim()}.`;
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+    openWhatsApp(message);
     onClose();
   };
 

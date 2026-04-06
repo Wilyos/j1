@@ -53,16 +53,16 @@ const Index = () => {
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-glow">
               <svg
                 aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="h-5 w-5"
+                viewBox="0 0 32 32"
+                className="h-6 w-6"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="1.8"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
-                <path d="M3 21l1.9-4.2a9 9 0 1 1 3.2 2.9L3 21" />
-                <path d="M9.5 10a.5.5 0 0 0-.5.5a7 7 0 0 0 4.5 4.5a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.3-.46a2.7 2.7 0 0 1-1.24-1.24a.5.5 0 0 0-.46-.3h-1z" />
+                <path d="M16 4.5c-6.2 0-11.2 4.8-11.2 10.8c0 1.9.5 3.7 1.5 5.3L4.5 27.5l7.1-1.8c1.4.8 2.9 1.2 4.4 1.2c6.2 0 11.2-4.8 11.2-10.8S22.2 4.5 16 4.5Z" />
+                <path d="M12.2 11.4c.2-.4.4-.4.7-.4h.6c.2 0 .5.1.6.4l1.1 2.6c.1.2.1.5-.1.7l-.9 1.1c-.1.2-.2.4-.1.6c.5 1 1.4 1.9 2.3 2.5c.2.1.5.1.7 0l1.1-.8c.2-.2.5-.2.7-.1l2.5 1.1c.2.1.4.4.4.6v.7c0 .3-.1.5-.4.7c-.6.4-1.4.6-2.2.5c-1.4-.2-3-.9-4.6-2.4c-1.9-1.7-3.1-3.7-3.4-5.5c-.1-.7 0-1.5.4-2.1Z" />
               </svg>
             </div>
           </div>

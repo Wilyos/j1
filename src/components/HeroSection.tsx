@@ -2,8 +2,36 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Plane, ArrowRight, Palette, Layers3, Sparkles } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { buildWhatsAppUrl } from '@/lib/whatsapp';
 
 const heroProduct = '/box/alitas medidas.webp';
+
+const mobileOffers = [
+  {
+    quantity: '1.000',
+    price: '$1.000.000',
+    previousPrice: null,
+    note: 'Precio base',
+  },
+  {
+    quantity: '2.000',
+    price: '$1.800.000',
+    previousPrice: '$2.000.000',
+    note: null,
+  },
+  {
+    quantity: '3.000',
+    price: '$2.250.000',
+    previousPrice: '$3.000.000',
+    note: null,
+  },
+  {
+    quantity: '4.000',
+    price: '$2.800.000',
+    previousPrice: '$4.000.000',
+    note: null,
+  },
+];
 
 interface HeroSectionProps {
   onOpenModal: () => void;
@@ -72,7 +100,7 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
               Tus clientes juzgan tu negocio antes de abrir el pedido. Si reciben un empaque generico, tu producto arranca perdiendo valor. Cambiar el icopor por una caja de papel personalizada hace que la entrega se vea seria, memorable y lista para cobrar mejor.
             </span>
           </p>
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
+          <div className="hidden md:grid md:grid-cols-3 gap-3">
             {sellingPoints.map(({ icon: Icon, mobile, desktop }) => (
               <div
                 key={desktop}
@@ -85,6 +113,47 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
                 </p>
               </div>
             ))}
+          </div>
+          <div className="grid grid-cols-2 gap-3 md:hidden">
+            {mobileOffers.map((offer, index) => {
+              const message = `Estoy interesado en la oferta de ${offer.quantity} cajas.`;
+
+              return (
+                <motion.a
+                  key={offer.quantity}
+                  href={buildWhatsAppUrl(message)}
+                  target="_blank"
+                  rel="noreferrer"
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-30px' }}
+                  transition={{ duration: 0.45, delay: index * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
+                  whileTap={{ scale: 0.98 }}
+                  className="group flex min-h-[7.6rem] flex-col justify-between rounded-[1.45rem] border border-primary/35 bg-[linear-gradient(180deg,rgba(16,35,25,0.98),rgba(11,24,18,0.98))] px-3.5 py-3 shadow-[0_12px_26px_rgba(0,0,0,0.18)] backdrop-blur-md"
+                >
+                  <div>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary/78">{offer.quantity} empaques</p>
+                    <div className="mt-2 text-[0.58rem] font-bold uppercase tracking-[0.16em] text-muted-foreground/85">Desde</div>
+                    <div className="mt-1 text-[0.8rem] leading-none text-foreground">
+                      <span className="text-[0.95rem] font-black">$</span>
+                      <span className="text-[1.58rem] font-black tracking-[-0.04em]">{offer.price.replace('$', '')}</span>
+                    </div>
+                    {offer.previousPrice ? (
+                      <p className="mt-1 text-[11px] font-semibold text-muted-foreground/75 line-through">{offer.previousPrice}</p>
+                    ) : (
+                      <p className="mt-1 text-[11px] font-semibold text-muted-foreground">{offer.note}</p>
+                    )}
+                  </div>
+
+                  <div className="mt-3 flex items-center justify-between gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-2.5 text-primary transition-colors group-active:bg-primary/18">
+                    <span className="text-sm font-semibold leading-none">Comprar</span>
+                    <span className="inline-flex items-center justify-center gap-1 text-sm font-semibold leading-none">
+                      Ir <ArrowRight size={16} />
+                    </span>
+                  </div>
+                </motion.a>
+              );
+            })}
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
             <motion.button
