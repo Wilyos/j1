@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const images = [
   { src: '/box/alitas.webp', alt: "Empaque de papel de calidad personalizado - vista principal" },
-  { src: '/box/alitas1.webp', alt: "Empaque de papel personalizado - vista lateral" },
+  { src: '/box/j1cantidad.webp', alt: "Empaque de papel personalizado - vista lateral" },
   { src: '/box/j1papel.webp', alt: "Empaque de papel personalizado - detalle de marca" },
 ];
 
