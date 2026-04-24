@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Plane, ArrowRight, Palette, Layers3, Sparkles } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { buildWhatsAppUrl } from '@/lib/whatsapp';
+import { trackEvent } from '@/lib/pixel';
 
 const heroProduct = '/box/alitas medidas.webp';
 
@@ -124,6 +125,13 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
                   href={buildWhatsAppUrl(message)}
                   target="_blank"
                   rel="noreferrer"
+                  onClick={() =>
+                    trackEvent('Contact', {
+                      content_name: 'Oferta movil WhatsApp',
+                      content_category: 'empaque_personalizado',
+                      num_items: offer.quantity,
+                    })
+                  }
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-30px' }}
@@ -158,7 +166,13 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
           <div className="flex flex-col sm:flex-row gap-4">
             <motion.button
               whileTap={{ scale: 0.98 }}
-              onClick={onOpenModal}
+              onClick={() => {
+                trackEvent('InitiateCheckout', {
+                  content_name: 'Empaque papel personalizado',
+                  content_category: 'empaque_personalizado',
+                });
+                onOpenModal();
+              }}
               className="w-full sm:w-auto px-6 sm:px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold shadow-glow hover:brightness-95 transition-all flex items-center justify-center gap-2 text-base whitespace-nowrap"
             >
               <span className="sm:hidden">Quiero dejar de verme basico</span>

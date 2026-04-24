@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, MessageCircle } from 'lucide-react';
 import { openWhatsApp } from '@/lib/whatsapp';
+import { trackEvent } from '@/lib/pixel';
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -19,6 +20,17 @@ const QuoteModal = ({ isOpen, onClose }: QuoteModalProps) => {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
+  // Evento ViewContent: el usuario abre el modal y ve la oferta
+  useEffect(() => {
+    if (isOpen) {
+      trackEvent('ViewContent', {
+        content_name: 'Cotizacion empaque personalizado',
+        content_category: 'empaque_personalizado',
+        content_type: 'product',
+      });
+    }
+  }, [isOpen]);
+
   const validate = () => {
     const errs: Record<string, string> = {};
     if (!formData.name.trim()) errs.name = 'Obligatorio';
@@ -34,6 +46,13 @@ const QuoteModal = ({ isOpen, onClose }: QuoteModalProps) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
+    trackEvent('Lead', {
+      content_name: 'Cotizacion empaque personalizado',
+      content_category: 'empaque_personalizado',
+      material: formData.material,
+      print_type: formData.printType,
+      quantity: formData.qty,
+    });
     const message = `Hola, mi nombre es ${formData.name.trim()} y te contacto desde ${formData.company.trim()}. Quiero cotizar el cambio de cajas de icopor a empaques de papel de calidad personalizados que vi en la pagina. Material preferido: ${formData.material}. Tipo de impresion: ${formData.printType}. Me interesan ${formData.qty} unidades y mi numero de contacto es ${formData.phone.trim()}.`;
     openWhatsApp(message);
     onClose();
@@ -100,7 +119,11 @@ const QuoteModal = ({ isOpen, onClose }: QuoteModalProps) => {
                       type="checkbox"
                       className={checkboxClass}
                       checked={formData.material === 'Papel kraft'}
-                      onChange={() => setFormData({ ...formData, material: formData.material === 'Papel kraft' ? '' : 'Papel kraft' })}
+                      onChange={() => {
+                        const next = formData.material === 'Papel kraft' ? '' : 'Papel kraft';
+                        if (next) trackEvent('CustomizeProduct', { content_category: 'empaque_personalizado', material: next });
+                        setFormData({ ...formData, material: next });
+                      }}
                     />
                     Papel kraft
                   </label>
@@ -109,7 +132,11 @@ const QuoteModal = ({ isOpen, onClose }: QuoteModalProps) => {
                       type="checkbox"
                       className={checkboxClass}
                       checked={formData.material === 'Maulle'}
-                      onChange={() => setFormData({ ...formData, material: formData.material === 'Maulle' ? '' : 'Maulle' })}
+                      onChange={() => {
+                        const next = formData.material === 'Maulle' ? '' : 'Maulle';
+                        if (next) trackEvent('CustomizeProduct', { content_category: 'empaque_personalizado', material: next });
+                        setFormData({ ...formData, material: next });
+                      }}
                     />
                     Maulle
                   </label>
